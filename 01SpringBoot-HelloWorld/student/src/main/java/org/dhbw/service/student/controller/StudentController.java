@@ -12,7 +12,7 @@ public class StudentController {
 
     @GetMapping("/student")
     public Student getStudent() {
-        Student newStudent = new  Student(new Long(1), "Thomas", "Tester", "4711");
+        Student newStudent = new Student(new Long(1), "Thomas", "Tester", "4711");
         return newStudent;
     }
 }
