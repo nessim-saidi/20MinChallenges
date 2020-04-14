@@ -1,9 +1,14 @@
 package org.dhbw.service.student.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
 
@@ -38,4 +43,8 @@ public class Course {
      * Hier sind keine Zugriffsmethoden (Getter/Setter) für die Klassenvariablen. Diese werden aufgrund der 
      * Annotation @Data von Lombok generiert zur Verfügung gestellt. So wird z.B. ein getTitle() erstellt. 
      */
+
+    @ManyToMany(mappedBy = "courseList")
+    @JsonIgnoreProperties("courseList")
+    private List<Student> enrolledStudents;
 }
